@@ -1,0 +1,9 @@
+node_modules
+# Keep environment variables out of version control
+.env
+
+/generated/prisma
+
+/generated/prisma
+
+devbills-ff0dd-firebase-adminsdk-fbsvc-27146d86ba.json
