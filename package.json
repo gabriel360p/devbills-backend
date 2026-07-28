@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "pnpm tsx watch src/server.ts"
+    "build": "prisma generate && tsc",
+    "check": "tsc --noEmit && biome check src",
+    "dev": "tsx watch src/server.ts",
+    "start": "node dist/src/server.js"
   },
   "keywords": [],
   "author": "",

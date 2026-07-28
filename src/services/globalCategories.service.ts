@@ -1,8 +1,8 @@
 //É uma espécie de seeder para o banco de dados
 
-import { Category, Prisma } from "../../generated/prisma/client";
-import { TransactionType } from "../../generated/prisma/enums";
-import prisma from '../config/prisma'
+import { Category, Prisma } from "../../generated/prisma/client.js";
+import { TransactionType } from "../../generated/prisma/enums.js";
+import prisma from '../config/prisma.js'
 //pedir ao chat pra explicar oq ta acontecendo KKKK
 
 type GlobalCategoryInput = Pick<Category,"name"|"color"|"type">
@@ -41,14 +41,14 @@ export const initializeCategoriesDefault = async ():Promise<Category[]> =>{
                 })
                 if(!existing){
                     const newCategorie = await prisma.category.create({data:categorie})
-                    console.log(newCategorie)
+                    // console.log(newCategorie)
                     createdCategories.push(newCategorie)
                 }else{
                     createdCategories.push(existing)
                 }
             }
         catch (err) {
-            console.log(err)
+            console.error(err)
         }
     }
 

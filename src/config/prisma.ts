@@ -4,23 +4,22 @@
 
 */
 
+import 'dotenv/config';
+import { PrismaClient } from '../../generated/prisma/client.js';
 
-import "dotenv/config";
-import { PrismaClient } from "../../generated/prisma/client";
 const prisma = new PrismaClient();
 
 //estabalecendo conexão com o banco e exportando ele para ser importado em server
-export const prismaConnect = async()=>{
-    try{
+export const prismaConnect = async () => {
+  try {
     await prisma.$connect();
-    console.log('DB Conectado')
-  }
-  catch(error) {
-    console.log(error);
+    console.log('DB Conectado');
+  } catch (error) {
+    console.error(error);
     await prisma.$disconnect();
     process.exit(1);
-  };
-}
+  }
+};
 
 //exportando a nossa forma de se comunicar com o banco
 export default prisma;

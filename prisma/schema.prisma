@@ -2,6 +2,7 @@ generator client {
   //instruções para gerar o client. pnpm prisma generate 
   provider = "prisma-client"
   output   = "../generated/prisma"
+  moduleFormat = "cjs"
 }
 
 datasource db {

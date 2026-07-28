@@ -24,7 +24,7 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": ["node_modules", "dist", "build"]
+		"includes": ["**", "!node_modules/**", "!dist/**", "!build/**"]
 	},
 	"assist": {
 		"enabled": true,

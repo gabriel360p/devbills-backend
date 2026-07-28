@@ -10,22 +10,22 @@ import { initializeCategoriesDefault } from './services/globalCategories.service
 
 import { env } from './config/env.js';
 import initializeFirebaseAdmin from './config/firebase.js';
+
 //buscando a informação que queremos:
 const serverport = env.PORT;
 
 initializeFirebaseAdmin();
 
 const start = async () => {
+  //importando o banco para inicializar a conexão
+  await prismaConnect();
+  await initializeCategoriesDefault();
 
-	//importando o banco para inicializar a conexão
-	await prismaConnect();
-	await initializeCategoriesDefault()
-
-	try {
-		await app.listen({ port: serverport });
-		console.log('Server on in port:' + serverport);
-	} catch (error) {
-		console.log(error);
-	}
+  try {
+    await app.listen({ port: serverport });
+    console.log(`Server on in port:${serverport}`);
+  } catch (error) {
+    console.error(error);
+  }
 };
 start();
